@@ -11,7 +11,7 @@ import os
 
 def getSummaryInfo(bag_path):
     info_strs = []
-    info_dict = yaml.load(
+    info_dict = yaml.safe_load(
         subprocess.Popen(['rosbag', 'info', '--yaml', bag_path], stdout=subprocess.PIPE).communicate()[0])
     end_timestamp = float(info_dict['end'])
     duration = float(info_dict['duration'])

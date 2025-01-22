@@ -4,7 +4,7 @@ import subprocess, yaml
 import sys
 
 def getFramerateInfo(bag_path):
-    info_dict = yaml.load(
+    info_dict = yaml.safe_load(
         subprocess.Popen(['rosbag', 'info', '--yaml', bag_path], stdout=subprocess.PIPE).communicate()[0])
 
     duration = float(info_dict['duration'])
